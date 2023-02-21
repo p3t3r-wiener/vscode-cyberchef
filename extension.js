@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const chef = require('cyberchef');
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -22,6 +23,17 @@ function activate(context) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from vscode-cyberchef!');
+
+
+		// CyberChef usage
+		console.log(chef.fromBase64("U28gbG9uZyBhbmQgdGhhbmtzIGZvciBhbGwgdGhlIGZpc2gu"));
+
+
+		// Custom picker
+		// https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample
+		const input = vscode.window.createQuickPick();
+        input.placeholder = 'Type to search for files';
+        input.show();
 	});
 
 	context.subscriptions.push(disposable);
